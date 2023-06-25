@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  
+  apache:
+    build: './php-server'
+    container_name: php-server
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./clzbooks-to-wixstores:/var/www/html
+      - ./logs:/var/log
+    restart: always
